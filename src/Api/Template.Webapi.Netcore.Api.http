@@ -1,0 +1,6 @@
+@Template.Webapi.Netcore.Api_HostAddress = http://localhost:5118
+
+GET {{Template.Webapi.Netcore.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
