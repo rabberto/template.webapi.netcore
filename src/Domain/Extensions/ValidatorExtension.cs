@@ -2,7 +2,7 @@ namespace Template.Webapi.Netcore.Domain.Extensions;
 
 using FluentValidation;
 using FluentValidation.Results;
-
+using Template.Webapi.Netcore.Domain.Interfaces.Extensions;
 
 public sealed class ValidatorExtension<TCommand> : IValidatorExtension<TCommand> 
     where TCommand : class
