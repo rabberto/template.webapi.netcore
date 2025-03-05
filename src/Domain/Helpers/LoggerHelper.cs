@@ -1,14 +1,16 @@
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Template.Webapi.Netcore.CrossCutting.AppSettings;
+using Template.Webapi.Netcore.Domain.Extensions;
 
 namespace Template.Webapi.Netcore.Domain.Helpers;
 
 public static class LoggerFactoryHelper
 {
-    private readonly static string _enableLog = AppSettings.Settings.Log.Console.Enabled;
-    private readonly static string _minimumLevel = AppSettings.Settings.Log.Console.MinimumLevel;
-    private readonly static string _directoryPath = AppSettings.Settings.Log.Console.GetDirectoryPath();
+    private readonly static bool _enableLog = AppSettings.Settings.Logging?.Console?.Enable ?? true;
+    private readonly static string _minimumLevel = AppSettings.Settings?.Logging?.Console?.MinimumLevel ?? "Information";
+    private readonly static string _directoryPath = AppSettings.Settings?.Logging?.Console?.GetDirectoryPath() ?? "./logs";
 
     public static void StartOperationLog(this ILogger logger, string methodName, Guid correlationId)
     {
@@ -71,7 +73,7 @@ public static class LoggerFactoryHelper
             builder.SetMinimumLevel(logLevel);
             builder.AddProvider(new LoggerExtension($"{_directoryPath}/client.log"));
 
-            if (bool.Parse(_enableLog))
+            if (_enableLog)
                 builder.AddConsole();
         });
     }

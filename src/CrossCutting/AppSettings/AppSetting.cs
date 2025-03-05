@@ -3,7 +3,7 @@ using Template.Webapi.Netcore.CrossCutting.AppSettings.Models;
 
 namespace Template.Webapi.Netcore.CrossCutting.AppSettings;
 
-public sealed class AppSettings
+public sealed class AppSettings()
 {
     private static AppSettings? _instance;
 

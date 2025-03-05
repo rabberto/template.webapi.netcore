@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Template.Webapi.Netcore.CrossCutting.AppSettings.Models;
 
-public sealed class CustomerSettings
+public sealed class CustomerSettings()
 {
     [JsonProperty("id")]
     public string? Id { get; set; }

@@ -1,4 +1,4 @@
-namespace Domain.Extensions;
+namespace Template.Webapi.Netcore.Domain.Extensions;
 
 using Microsoft.Extensions.Logging;
 
